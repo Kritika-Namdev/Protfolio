@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Code } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 // Custom inline SVG replacements for brand icons
@@ -38,20 +37,6 @@ const Linkedin = (props) => (
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
-
-const Leetcode = (props) => (
-  <svg
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    fill="currentColor"
-    className={props.className}
-  >
-    <path d="M16.102 17.93l-2.697 2.607c-.466.45-1.211.45-1.677 0l-8-7.728a1.155 1.155 0 0 1 0-1.677l2.697-2.607c.466-.45 1.211-.45 1.677 0a1.155 1.155 0 0 1 0 1.677l-1.859 1.797 6.323 6.108 4.677-4.515a1.155 1.155 0 0 1 1.677 0c.466.45.466 1.21 0 1.677zM20.579 7.42c-.466-.45-1.211-.45-1.677 0L14.225 11.9a1.155 1.155 0 0 1-1.677 0c-.466-.45-.466-1.21 0-1.677l4.677-4.515c.466-.45.466-1.21 0-1.677-.466-.45-1.211-.45-1.677 0l-4.677 4.515a3.465 3.465 0 0 0 0 4.975 3.465 3.465 0 0 0 4.976 0l4.677-4.515c.466-.45.466-1.21 0-1.677z" />
-  </svg>
-);
-
-
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -117,17 +102,13 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left: Contact Info details */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
+          <div
             className="lg:col-span-5 flex flex-col justify-between space-y-8 text-left"
           >
             <div>
               <h3 className="text-2xl font-bold text-white mb-4 tracking-wide">Let's Connect & Collaborate!</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                Whether you have a full-stack engineering question, want to chat about CCNA enterprise network design, or have an open role, my inbox is always open. I'll do my best to get back to you as soon as possible!
+                Whether you have a full-stack engineering question, want to discuss a project, or have an open role, my inbox is always open. I'll do my best to get back to you as soon as possible!
               </p>
 
               {/* Info Items */}
@@ -202,28 +183,19 @@ export default function Contact() {
                   className="w-10 h-10 rounded-lg bg-white/2 border border-white/10 hover:border-accent-purple flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-purple/20 hover:scale-110 transition-all duration-300"
                   title="Leetcode Profile"
                 >
-                  <Leetcode className="w-5 h-5" />
+                  <Code className="w-5 h-5" />
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right: Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
+          <div
             className="lg:col-span-7 glassmorphism-card rounded-3xl p-8 md:p-10 relative overflow-hidden"
           >
-            <AnimatePresence mode="wait">
               {!isSuccess ? (
-                <motion.form
-                  key="contact-form"
+                <form
                   onSubmit={handleSubmit}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                   className="space-y-6 text-left"
                 >
                   {/* Name field */}
@@ -305,9 +277,7 @@ export default function Contact() {
                   </div>
 
                   {/* Submit Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  <button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full py-4 rounded-xl bg-accent-purple hover:bg-accent-purple/90 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-accent-purple/10 hover:shadow-accent-purple/30 hover:glow-purple transition-all duration-300 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
@@ -323,25 +293,17 @@ export default function Contact() {
                         <Send className="w-4 h-4" />
                       </>
                     )}
-                  </motion.button>
-                </motion.form>
+                  </button>
+                </form>
               ) : (
-                // Success Layout overlay
-                <motion.div
-                  key="success-card"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
+                <div
                   className="h-full flex flex-col items-center justify-center text-center py-12"
                 >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                  <div
                     className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-6"
                   >
                     <CheckCircle2 className="w-10 h-10 text-emerald-400" />
-                  </motion.div>
+                  </div>
                   <h3 className="text-2xl font-bold text-white mb-2 tracking-wide">Thank You!</h3>
                   <p className="text-gray-400 text-sm max-w-sm leading-relaxed mb-8">
                     Your message has been transmitted successfully. I will review it and follow up as quickly as possible.
@@ -352,10 +314,9 @@ export default function Contact() {
                   >
                     Send Another Message
                   </button>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
-          </motion.div>
+          </div>
 
         </div>
 

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { GraduationCap, Award, Calendar, Landmark } from 'lucide-react';
 import { educationData } from '../data/portfolioData';
 
@@ -24,12 +23,8 @@ export default function Education() {
           <div className="absolute left-[15px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-accent-purple/60 via-purple-500/20 to-transparent" />
 
           {educationData.map((edu, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.1 }}
               className="relative mb-12 text-left"
             >
               {/* Timeline glowing icon node */}
@@ -39,7 +34,7 @@ export default function Education() {
 
               {/* Glassmorphic box */}
               <div className="glassmorphism-card rounded-2xl p-6 md:p-8 hover:border-accent-purple/20 transition-all duration-300">
-                <div className="flex flex-wrap gap-4 items-center justify-between mb-4">
+                <div className="flex items-center mb-4">
                   
                   {/* Years */}
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-accent-purple/10 border border-accent-purple/20 text-xs font-semibold text-accent-purple font-mono">
@@ -47,9 +42,6 @@ export default function Education() {
                     {edu.date}
                   </span>
 
-                  <span className="text-xs text-gray-500 font-semibold font-mono tracking-widest uppercase">
-                    UNDERGRADUATE
-                  </span>
                 </div>
 
                 {/* Degree Title */}
@@ -73,7 +65,7 @@ export default function Education() {
 
               </div>
 
-            </motion.div>
+            </div>
           ))}
 
         </div>

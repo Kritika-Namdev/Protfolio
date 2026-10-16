@@ -7,13 +7,14 @@ import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Education from './sections/Education';
 import Certifications from './sections/Certifications';
+import Highlights from './sections/Highlights';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 
 export default function App() {
   return (
     <div className="relative min-h-screen selection:bg-accent-purple/30 selection:text-white font-sans text-gray-200">
-      {/* Dynamic Interactive Network Canvas */}
+      {/* Static grid background */}
       <ParticleBackground />
 
       {/* Navigation Menu */}
@@ -27,13 +28,13 @@ export default function App() {
         {/* Detailed Biographical Blocks */}
         <About />
 
-        {/* Skill Progress Dashboard */}
+        {/* Technical Skills */}
         <Skills />
 
         {/* Work Timeline */}
         <Experience />
 
-        {/* Perspective Tilt Projects Grid */}
+        {/* Projects Grid */}
         <Projects />
 
         {/* Academic Profile */}
@@ -41,6 +42,9 @@ export default function App() {
 
         {/* Professional Certifications (CCNA & Full-Stack) */}
         <Certifications />
+
+        {/* Technical Achievements and Co-curricular Activities */}
+        <Highlights />
 
         {/* Interactive Contact Panel */}
         <Contact />

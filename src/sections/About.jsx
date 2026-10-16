@@ -1,24 +1,8 @@
-import { motion } from 'framer-motion';
-import { User, Target, ShieldAlert, Award } from 'lucide-react';
+import { User, Award } from 'lucide-react';
 import { aboutData } from '../data/portfolioData';
 import avatarImg from '../assets/kritika_avatar.png';
 
 export default function About() {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
-
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       {/* Background radial highlight */}
@@ -28,38 +12,25 @@ export default function About() {
         
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.5 }}
+          <h2
             className="text-xs font-semibold tracking-widest text-accent-purple uppercase mb-2 font-mono"
           >
             Introduction
-          </motion.h2>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
+          </h2>
+          <h3
             className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
           >
             About Me
-          </motion.h3>
+          </h3>
           <div className="w-16 h-1 bg-accent-purple mx-auto mt-4 rounded-full" />
         </div>
 
         {/* About Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+        <div
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
         >
           {/* Left Column: Avatar Profile Card */}
-          <motion.div
-            variants={cardVariants}
+          <div
             className="lg:col-span-4 glassmorphism-card rounded-2xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group border border-accent-purple/15"
           >
             {/* Hover inner gradient glow */}
@@ -78,20 +49,19 @@ export default function About() {
 
             <h4 className="text-xl font-bold text-white mb-1 tracking-wide uppercase">Kritika Namdev</h4>
             <p className="text-xs font-semibold uppercase tracking-wider text-accent-purple font-mono mb-6">
-              Indore, MP, India
+              Indore, MP India
             </p>
 
             <div className="flex gap-2 items-center justify-center w-full bg-[#050816]/80 px-4 py-2.5 rounded-xl border border-white/5">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
               <span className="text-xs font-semibold text-gray-300 font-mono uppercase tracking-wider">
-                MERN & CCNA SPECIALIST
+                MERN STACK DEVELOPER
               </span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Bio Details, Objective, and Competences */}
-          <motion.div
-            variants={cardVariants}
+          <div
             className="lg:col-span-8 flex flex-col gap-6 justify-between text-left"
           >
             {/* Bio Block */}
@@ -132,9 +102,9 @@ export default function About() {
               </div>
             </div>
 
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
 
       </div>
     </section>

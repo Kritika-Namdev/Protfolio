@@ -1,37 +1,40 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Terminal } from 'lucide-react';
-import useActiveSection from '../hooks/useActiveSection';
 import { personalInfo } from '../data/portfolioData';
+
+const navItems = [
+  { label: 'About', id: 'about' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Education', id: 'education' },
+  { label: 'Certifications', id: 'certifications' },
+  { label: 'Highlights', id: 'highlights' },
+  { label: 'Contact', id: 'contact' },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Education', id: 'education' },
-    { label: 'Certifications', id: 'certifications' },
-    { label: 'Contact', id: 'contact' },
-  ];
-
-  const sectionIds = navItems.map((item) => item.id);
-  const activeSection = useActiveSection(sectionIds, 0.25);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+    function updatePagePosition() {
+      setScrolled(window.scrollY > 20);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+      let currentSection = '';
+      for (const item of navItems) {
+        const section = document.getElementById(item.id);
+        if (section && window.scrollY + 140 >= section.offsetTop) {
+          currentSection = item.id;
+        }
+      }
+      setActiveSection(currentSection);
+    }
+
+    updatePagePosition();
+    window.addEventListener('scroll', updatePagePosition);
+    return () => window.removeEventListener('scroll', updatePagePosition);
   }, []);
 
   const scrollToSection = (id) => {
@@ -52,10 +55,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+        <div
           className="flex items-center gap-2 cursor-pointer group"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
@@ -66,18 +66,15 @@ export default function Navbar() {
             {personalInfo.name.split(' ')[0]}
             <span className="text-accent-purple">.</span>
           </span>
-        </motion.div>
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
-          {navItems.map((item, index) => {
+          {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
-              <motion.button
+              <button
                 key={item.id}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
                 onClick={() => scrollToSection(item.id)}
                 className={`relative py-2 text-sm font-medium tracking-wide transition-colors duration-300 cursor-pointer ${
                   isActive ? 'text-white font-semibold' : 'text-gray-400 hover:text-white'
@@ -85,25 +82,18 @@ export default function Navbar() {
               >
                 {item.label}
                 {isActive && (
-                  <motion.div
-                    layoutId="activeUnderline"
-                    className="absolute bottom-0 left-0 w-full h-[2px] bg-accent-purple"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent-purple" />
                 )}
-              </motion.button>
+              </button>
             );
           })}
           
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+          <button
             onClick={() => scrollToSection('contact')}
             className="px-5 py-2.5 rounded-lg border border-accent-purple/40 text-accent-purple hover:bg-accent-purple hover:text-white transition-all duration-300 text-sm font-semibold tracking-wide shadow-sm hover:glow-purple cursor-pointer"
           >
             Connect
-          </motion.button>
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -119,13 +109,8 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+      {isOpen && (
+          <div
             className="lg:hidden bg-[#050816]/95 border-b border-white/5 backdrop-blur-lg overflow-hidden"
           >
             <div className="px-6 py-8 flex flex-col gap-5">
@@ -150,9 +135,8 @@ export default function Navbar() {
                 Get In Touch
               </button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+      )}
     </nav>
   );
 }

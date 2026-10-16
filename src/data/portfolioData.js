@@ -2,65 +2,50 @@ export const personalInfo = {
   name: "KRITIKA NAMDEV",
   titles: [
     "MERN Stack Developer",
-    "Computer Science Engineer",
-    "Networking Enthusiast (CCNA)"
+    "Full-Stack Developer",
+    "Computer Science Engineer"
   ],
-  description: "Specializing in building robust full-stack web applications and designing efficient enterprise network infrastructures.",
-  resumeUrl: "#", // Add your CV file link here
+  description: "I build responsive full-stack web applications with modern JavaScript technologies, secure APIs, and reliable data systems.",
+  resumeUrl: "https://drive.google.com/file/d/1-IcKvwVlpLFG0bIIkrkXBD8GbwpF5rQW/view?usp=sharing", // Add your CV file link here
   email: "kritika04.kn@gmail.com",
   phone: "+91-8959917236",
   location: "Indore, MP",
-  github: "https://github.com/kritikanamdev",
-  linkedin: "https://linkedin.com/in/kritika-namdev",
-  leetcode: "https://leetcode.com/u/kritika04kn", // Added LeetCode link
+  github: "https://github.com/Kritika-Namdev",
+  linkedin: "https://www.linkedin.com/in/kritikaanamdev/",
+  leetcode: "https://leetcode.com/u/Kritika_9301/", // Added LeetCode link
 };
 
 export const aboutData = {
-  intro: "Hi, I'm Kritika Namdev. I am a Computer Science Engineering student at Medicaps University with a focus on MERN stack development and Cisco enterprise networking.",
-  objective: "To apply my software engineering and CCNA-level routing/switching capabilities to construct high-performance web systems and secure, optimized network infrastructures.",
+  intro: "Hi, I'm Kritika Namdev. I am a Computer Science Engineering student at Medicaps University focused on full-stack web development.",
+  objective: "To build reliable, user-friendly web applications with thoughtful interfaces, secure APIs, and well-structured data systems.",
   paragraph1: "As a MERN Stack Developer, I design responsive frontend clients in React.js and integrate them with scalable backend services running on Node.js/Express.js and MongoDB. I focus on creating clean, intuitive user interfaces backed by solid API architectures.",
-  paragraph2: "As a Networking Enthusiast, I am trained in CCNA Enterprise configurations. I have hands-on experience designing, simulating, and securing enterprise networks, subnet architectures (VLSM), VLAN segmentations, routing protocols (OSPF), and packet diagnostics using Wireshark.",
+  paragraph2: "I enjoy taking a project from interface to backend, with an emphasis on responsive design, secure authentication, and clear, maintainable code.",
   qualities: [
     { title: "MERN Stack", desc: "Proficient in React, Node, Express, and MongoDB." },
-    { title: "CCNA trained", desc: "Expertise in routing, switching, and Packet Tracer design." },
+    { title: "Cloud Foundations", desc: "AWS Academy training in cloud services and architecture." },
     { title: "Core CS Fundamentals", desc: "Strong command of DSA, DBMS, OS, OOPS, and Computer Networks." }
   ]
 };
 
 export const skillsData = {
-  languages: [
-    { name: "C++", level: 85 },
-    { name: "Python", level: 80 },
-    { name: "JavaScript", level: 85 },
-    { name: "SQL", level: 75 }
-  ],
-  databases: [
-    { name: "MongoDB", level: 85 },
-    { name: "MySQL", level: 80 }
-  ],
-  frameworks: [
-    { name: "ReactJS", level: 90 },
-    { name: "NodeJS", level: 80 },
-    { name: "ExpressJs", level: 80 },
-    { name: "TailwindCSS", level: 95 }
-  ],
-  csCore: [
-    { name: "Data Structures & Algorithms", level: 85 },
-    { name: "Computer Networks", level: 90 },
-    { name: "DBMS & SQL", level: 80 },
-    { name: "Operating Systems", level: 75 },
-    { name: "OOPS Concepts", level: 85 }
-  ],
-  tools: [
-    { name: "Git & GitHub", level: 85 },
-    { name: "VS Code", level: 95 },
-    { name: "Cisco Packet Tracer", level: 90 },
-    { name: "Wireshark", level: 80 },
-    { name: "Postman", level: 80 }
-  ]
+  languages: ["C++", "Python", "JavaScript", "SQL", "HTML", "CSS"],
+  frameworks: ["Node.js", "Express.js", "React.js", "TailwindCSS", "REST APIs"],
+  databases: ["MongoDB", "MySQL"],
+  cloud: ["AWS"],
+  tools: ["Git", "GitHub", "Postman", "VS Code"],
+  csCore: ["Data Structures & Algorithms", "DBMS", "Operating Systems", "OOPs", "Computer Networks"]
 };
 
 export const experienceData = [
+  {
+    role: "Web Development Intern",
+    company: "Infosys Springboard 6.0",
+    date: "June 2025 - July 2025 · Remote",
+    description: [
+      "Developed full-stack web applications using the MERN stack, implementing 10+ RESTful APIs and 10+ CRUD operations.",
+      "Implemented JWT-based authentication, protected routes, and MongoDB integration while building responsive React.js interfaces."
+    ]
+  },
   {
     role: "CCNA Training (9 Months)",
     company: "Medicaps University",
@@ -96,52 +81,79 @@ export const educationData = [
 
 export const projectsData = [
   {
-    title: "LoanAssist: Loan Approval Prediction System",
-    description: "Developed a loan approval prediction model using machine learning and React.js, achieving 90% accuracy in eligibility assessment via MongoDB data integration. (Team Project)",
-    tech: ["React.js", "Python (ML)", "MongoDB", "TailwindCSS"],
-    githubUrl: "https://github.com/kritikanamdev",
-    liveUrl: "https://github.com/kritikanamdev",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+    title: "Oriana AI - AI VoiceAssist",
+    description: "Built a full-stack AI voice assistant that accepts voice commands and responds with Gemini-powered answers. Added Google authentication, REST APIs, secure user management, personalized interactions, and deployed on Render.",
+    tech: ["Gemini AI", "Google Auth", "REST APIs", "Render"],
+    liveUrl: "https://oriana-ai.onrender.com/",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
   },
   {
-    title: "AI Habit Tracker",
-    description: "Built an MERN-stack AI habit tracker with secure authentication, providing personalized habit feedback and progress analytics.",
-    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "TailwindCSS"],
-    githubUrl: "https://github.com/kritikanamdev",
-    liveUrl: "https://github.com/kritikanamdev",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"
+    title: "LinkDrop - URL Shortener",
+    description: "Created a responsive URL shortening app with custom short links, fast redirection, expiration handling, click tracking, link statistics, validation, and CRUD operations.",
+    tech: ["React.js", "URL Shortening", "Click Tracking", "CRUD"],
+    githubUrl: "https://github.com/Kritika-Namdev/URL-Shortner",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "LoanAssist - Loan Approval Prediction System",
+    description: "Contributed to frontend and backend development for this group project. Built responsive loan eligibility interfaces, REST APIs, MongoDB integration, EMI and repayment calculations, and connected the ML prediction service to show approval results and recommendations.",
+    tech: ["React.js", "REST APIs", "MongoDB", "ML Integration"],
+    githubUrl: "https://github.com/Kritika-Namdev/LoanAssist",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
 export const certificationsData = [
   {
+    title: "AWS Academy Graduate - Cloud Foundations",
+    issuer: "AWS Academy"
+  },
+  {
+    title: "AWS Academy Graduate - Cloud Architecting",
+    issuer: "AWS Academy"
+  },
+  {
     title: "Cisco Certified Network Associate (CCNA)",
-    issuer: "Cisco Networking Academy (NetaCad)",
-    date: "2025",
-    detail: "Covers: Introduction to Networks | Switching, Routing, and Wireless Essentials | Enterprise Networking, Security, and Automation."
+    issuer: "Cisco Networking Academy (NetAcad)"
+  },
+  {
+    title: "Database Management Systems (DBMS)",
+    issuer: "NPTEL (IIT Kharagpur)"
   },
   {
     title: "Python Essentials 1 & 2",
-    issuer: "Cisco Networking Academy (NetaCad)",
-    date: "2024",
-    detail: "Object-oriented programming, data structures, algorithm implementations, packages, and file structures in Python."
+    issuer: "Cisco Networking Academy (NetAcad)"
+  },
+  {
+    title: "The Web Developer Bootcamp",
+    issuer: "Udemy"
   },
   {
     title: "Introduction to Data Science",
-    issuer: "Cisco Networking Academy (NetaCad)",
-    date: "2024",
-    detail: "Foundations of data collection, visualization, analytics pipelines, and basic machine learning concepts."
+    issuer: "Cisco Networking Academy (NetAcad)"
   },
   {
-    title: "Apply AI: Analyze Customer Reviews & Intro to Modern AI",
-    issuer: "Cisco Networking Academy (NetaCad)",
-    date: "2025",
-    detail: "Hands-on experience processing sentiment analysis, language parsing algorithms, and deploying standard deep learning pipelines."
+    title: "Apply AI: Analyze Customer Reviews",
+    issuer: "Cisco Networking Academy (NetAcad)"
   },
   {
-    title: "The Web Developer BootCamp",
-    issuer: "Udemy",
-    date: "2024",
-    detail: "Comprehensive training covering full-stack web architectures, including modern React development, Express endpoints, and MongoDB schemas."
+    title: "Introduction to Modern AI",
+    issuer: "Cisco Networking Academy (NetAcad)"
+  }
+];
+
+export const achievementsData = [
+  {
+    title: "LeetCode",
+    detail: "Solved 400+ Data Structures and Algorithms problems covering arrays, strings, linked lists, trees, recursion, and binary search.",
+    link: personalInfo.leetcode
+  }
+];
+
+export const activitiesData = [
+  {
+    title: "Team Leader — AIESEC",
+    detail: "Led a 4-member team, coordinating tasks, activities, and team objectives to ensure seamless execution.",
+    linkText: "View experience letter"
   }
 ];

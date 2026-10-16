@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Code } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 // Custom inline SVG replacements for brand icons
@@ -37,20 +36,6 @@ const Linkedin = (props) => (
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
-
-const Leetcode = (props) => (
-  <svg
-    viewBox="0 0 24 24"
-    width="20"
-    height="20"
-    fill="currentColor"
-    className={props.className}
-  >
-    <path d="M16.102 17.93l-2.697 2.607c-.466.45-1.211.45-1.677 0l-8-7.728a1.155 1.155 0 0 1 0-1.677l2.697-2.607c.466-.45 1.211-.45 1.677 0a1.155 1.155 0 0 1 0 1.677l-1.859 1.797 6.323 6.108 4.677-4.515a1.155 1.155 0 0 1 1.677 0c.466.45.466 1.21 0 1.677zM20.579 7.42c-.466-.45-1.211-.45-1.677 0L14.225 11.9a1.155 1.155 0 0 1-1.677 0c-.466-.45-.466-1.21 0-1.677l4.677-4.515c.466-.45.466-1.21 0-1.677-.466-.45-1.211-.45-1.677 0l-4.677 4.515a3.465 3.465 0 0 0 0 4.975 3.465 3.465 0 0 0 4.976 0l4.677-4.515c.466-.45.466-1.21 0-1.677z" />
-  </svg>
-);
-
-
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -95,20 +80,19 @@ export default function Footer() {
             className="text-gray-500 hover:text-white transition-colors"
             title="LeetCode"
           >
-            <Leetcode className="w-5 h-5" />
+            <Code className="w-5 h-5" />
           </a>
         </div>
 
         {/* Right: Scroll to Top */}
         <div>
-          <motion.button
-            whileHover={{ y: -3 }}
+          <button
             onClick={scrollToTop}
             className="w-10 h-10 rounded-lg bg-white/2 border border-white/10 hover:border-accent-purple flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-purple/20 hover:scale-105 transition-all duration-300 cursor-pointer"
             title="Scroll to Top"
           >
             <ArrowUp className="w-4 h-4 animate-bounce" style={{ animationDuration: '2.5s' }} />
-          </motion.button>
+          </button>
         </div>
 
       </div>

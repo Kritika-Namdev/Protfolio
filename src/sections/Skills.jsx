@@ -1,34 +1,48 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Code, Server, Database, Network, Wrench } from 'lucide-react';
+import {
+  Code, Code2, Braces, Server, Database, Network, Wrench, Cloud,
+  Palette, Atom, Workflow, GitBranch, Send, Monitor, Binary, Cpu, Boxes
+} from 'lucide-react';
 import { skillsData } from '../data/portfolioData';
+
+const skillIcons = {
+  'C++': Code2,
+  Python: Code2,
+  JavaScript: Braces,
+  SQL: Database,
+  HTML: Code,
+  CSS: Palette,
+  'Node.js': Server,
+  'Express.js': Server,
+  'React.js': Atom,
+  TailwindCSS: Palette,
+  'REST APIs': Workflow,
+  MongoDB: Database,
+  MySQL: Database,
+  AWS: Cloud,
+  Git: GitBranch,
+  GitHub: GitBranch,
+  Postman: Send,
+  'VS Code': Monitor,
+  'Data Structures & Algorithms': Binary,
+  DBMS: Database,
+  'Operating Systems': Cpu,
+  OOPs: Boxes,
+  'Computer Networks': Network
+};
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState('languages');
 
   const tabs = [
     { id: 'languages', label: 'Languages', icon: Code },
-    { id: 'databases', label: 'Databases', icon: Database },
     { id: 'frameworks', label: 'Frameworks', icon: Server },
+    { id: 'databases', label: 'Databases', icon: Database },
+    { id: 'cloud', label: 'Cloud Platform', icon: Cloud },
     { id: 'csCore', label: 'CS Core', icon: Network },
     { id: 'tools', label: 'Developer Tools', icon: Wrench },
   ];
 
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08
-      }
-    }
-  };
-
-  const skillVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }
-  };
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden bg-[#050816]/30">
@@ -57,13 +71,7 @@ export default function Skills() {
                   isActive ? 'text-white' : 'text-gray-400 hover:text-white bg-white/2 border border-white/5'
                 }`}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeTabGlow"
-                    className="absolute inset-0 bg-accent-purple rounded-xl -z-10 shadow-lg shadow-accent-purple/20 border border-accent-purple/50"
-                    transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-                  />
-                )}
+                {isActive && <span className="absolute inset-0 bg-accent-purple rounded-xl -z-10 shadow-lg shadow-accent-purple/20 border border-accent-purple/50" />}
                 <IconComponent className="w-4 h-4" />
                 {tab.label}
               </button>
@@ -72,44 +80,24 @@ export default function Skills() {
         </div>
 
         {/* Skills List container */}
-        <div className="min-h-[300px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
-            >
-              {skillsData[activeTab].map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  variants={skillVariants}
-                  whileHover={{ scale: 1.02 }}
-                  className="glassmorphism-card rounded-xl p-6 hover:border-accent-purple/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-                >
-                  {/* Subtle inner hover glow */}
-                  <div className="absolute inset-0 bg-accent-purple/1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-base font-bold text-white tracking-wide">{skill.name}</span>
-                    <span className="text-sm font-semibold text-accent-purple font-mono">{skill.level}%</span>
+        <div className="min-h-[140px]">
+            <div className="flex flex-wrap justify-center gap-4">
+              {skillsData[activeTab].map((skill) => {
+                const SkillIcon = skillIcons[skill] || Code;
+                return (
+                  <div
+                    key={skill}
+                    className="glassmorphism-card rounded-full px-4 py-3 hover:-translate-y-1 hover:border-accent-purple/40 transition-all duration-300 flex items-center gap-3 group relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-accent-purple/1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    <span className="w-10 h-10 rounded-full bg-accent-purple/10 border border-accent-purple/25 flex items-center justify-center text-accent-purple shrink-0">
+                      <SkillIcon className="w-5 h-5" aria-hidden="true" />
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-white tracking-wide pr-2">{skill}</span>
                   </div>
-
-                  {/* Progress track */}
-                  <div className="w-full h-2.5 bg-[#050816] rounded-full overflow-hidden border border-white/5">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 0.8, ease: 'easeOut', delay: index * 0.05 }}
-                      className="h-full bg-gradient-to-r from-accent-purple to-purple-400 rounded-full"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+                );
+              })}
+            </div>
         </div>
 
       </div>
